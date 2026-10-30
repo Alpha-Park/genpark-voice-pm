@@ -1,0 +1,10 @@
+{
+  "name": "genpark-voice-pm",
+  "version": "1.0.0",
+  "description": "GenPark Voice PM - Agile story point Fibonacci estimator, PRD-to-INVEST user story decomposer, and 0/1 knapsack dynamic programming sprint backlog scheduler with zero dependencies.",
+  "tools": [
+    "estimate_story_points_fibonacci",
+    "decompose_prd_to_invest_stories",
+    "schedule_sprint_backlog_knapsack"
+  ]
+}
