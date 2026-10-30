@@ -1,12 +1,53 @@
-# GenPark Voice PM
+# genpark-voice-pm
 
-Why pay for a "Say it and it's done" premium audio-productivity app? 
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-Ecosystem-blue.svg)](https://github.com/alphaparkinc/genpark-voice-pm)
+[![Zero Dependency](https://img.shields.io/badge/Dependencies-Standard_Library_Only-success.svg)](https://www.python.org/)
+[![MCP Ready](https://img.shields.io/badge/MCP-Model_Context_Protocol-orange.svg)](https://modelcontextprotocol.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Production Grade](https://img.shields.io/badge/Status-Production_Ready-brightgreen.svg)](https://github.com/Alpha-Park/genpark-voice-pm)
 
-**GenPark Voice PM** replaces proprietary voice note tools by acting as your personal AI Product Manager. It automatically transcribes your audio files, identifies actionable tasks, and generates structured, clean to-do lists.
+Production-grade agentic skill designed for the OpenClaw and GenPark swarms. Built strictly using the Python standard library with zero external runtime dependencies.
 
-## Usage
-```bash
-openclaw use genpark-voice-pm --audio "brainstorming.m4a"
+## Architecture & Flow
+
+```mermaid
+flowchart TD
+    A[Agent Planner / Host] -->|Tool Invocation| B(MCP Server Entrypoint)
+    B --> C[GenParkVoicePm]
+    C --> D[Deterministic Mathematical Algorithms]
+    D --> E[Validated JSON Response]
+    E -->|Structured Payload| A
 ```
 
-*Built by the GenPark open-source community.*
+## Features
+
+- **Standard Library Only**: 100% Python standard library with no wheels, C-extensions, or pip requirements.
+- **Model Context Protocol (MCP)**: Native FastMCP JSON-RPC interface for seamless tool-calling in Claude, Cursor, and OpenClaw.
+- **Algorithmic Rigor**: Rigorous closed-form mathematical equations and quantitative deterministic metrics.
+- **Multi-Tenant Mirrored**: Dual-deployed across `@alphaparkinc` and `@Alpha-Park`.
+
+## Installation & Usage
+
+```bash
+git clone https://github.com/Alpha-Park/genpark-voice-pm.git
+cd genpark-voice-pm
+python example_usage.py
+```
+
+## MCP Configuration
+
+Add to your `claude_desktop_config.json`:
+```json
+{
+  "mcpServers": {
+    "genpark-voice-pm": {
+      "command": "python",
+      "args": ["-m", "genpark-voice-pm.mcp_server"]
+    }
+  }
+}
+```
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
