@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any, List
 from client import GenParkVoicePm
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("genpark-voice-pm")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("genpark-voice-pm")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('genpark-voice-pm')
 
 pm = GenParkVoicePm()
 
@@ -55,8 +46,7 @@ def schedule_sprint_backlog_knapsack(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Voice PM:")
-    print(estimate_story_points_fibonacci({"backend_complexity": 3, "frontend_complexity": 2}))
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
